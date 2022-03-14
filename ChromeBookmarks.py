@@ -75,7 +75,7 @@ class ChromeBookmarks(Extension):
             query = ''
 
         try:
-            paths = map(lambda x: tuple(x.split(',')), bookmark_paths.split(';'))
+            paths = list(map(lambda x: tuple(x.split(',')), bookmark_paths.split(';')))
             if len(paths) == 0 or any(map(lambda x: len(x) != 2, paths)):
                 paths = self.bookmarks_paths
                 logger.exception('Wrong format for bookmark path preference')
