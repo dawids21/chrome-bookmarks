@@ -17,9 +17,9 @@
     },
     {
       "id": "bookmarks-path",
-      "type": "text",
+      "type": "input",
       "name": "Path to bookmarks",
-      "description": "Provide paths for bookmarks file. Each line should have format: <path>,<browser (google-chrome, chromium, Brave-Browser)>"
+      "description": "Provide paths for bookmarks file. Each line should have format: <path>,<browser>;<path>,<browser> Browsers: 'google-chrome', 'chromium', 'Brave-Browser'"
     }
   ]
 }
