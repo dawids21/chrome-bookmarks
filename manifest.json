@@ -14,6 +14,12 @@
       "name": "Chrome bookmarks",
       "description": "Find in chrome bookmarks",
       "default_value": "cb"
+    },
+    {
+      "id": "bookmarks-path",
+      "type": "text",
+      "name": "Path to bookmarks",
+      "description": "Provide paths for bookmarks file. Each line should have format: <path>,<browser (google-chrome, chromium, Brave-Browser)>"
     }
   ]
 }
