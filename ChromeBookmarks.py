@@ -22,7 +22,7 @@ browser_imgs = {
 
 class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
-        items = extension.get_items(event.get_argument())
+        items = extension.get_items(event.get_argument(), extension.preferences['bookmarks-path'])
         return RenderResultListAction(items)
 
 
@@ -53,7 +53,7 @@ class ChromeBookmarks(Extension):
                 matches.append(data)
                 self.matches_len += 1
 
-    def get_items(self, query):
+    def get_items(self, query, bookmark_paths):
 
         items = []
         self.matches_len = 0
@@ -61,7 +61,9 @@ class ChromeBookmarks(Extension):
         if query is None:
             query = ''
 
-        for bookmarks_path, browser in self.bookmarks_paths:
+        paths = map(lambda x: tuple(x.split(',')), bookmark_paths.split('\n'))
+
+        for bookmarks_path, browser in paths:
             
             matches = []
             
