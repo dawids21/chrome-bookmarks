@@ -37,20 +37,7 @@ class ChromeBookmarks(Extension):
 
     @staticmethod
     def find_bookmarks_paths():
-        res_lst = []
-        for browser in support_browsers:
-            f = os.popen('locate %s | grep Bookmarks' % browser)
-            res = f.read().split('\n')
-            if len(res) == 0:
-                logger.info('Path to the %s Bookmarks was not found' % browser)
-                continue
-            for one_path in res:
-                if one_path.endswith('Bookmarks'):
-                    res_lst.append((one_path, browser))
-
-        if len(res_lst) == 0:
-            logger.exception('Path to the Chrome Bookmarks was not found')
-        return res_lst
+        return [('/home/dawid/.config/google-chrome/Default/Bookmarks', 'google-chrome')]
 
     def find_rec(self, data, query, matches):
 
